@@ -1,0 +1,13 @@
+#Standalone Makefile
+#The FREEZE variable is where freeze.py is on your system
+
+all: qotdinterface.py
+	cp -f qotdinterface.py standalone/
+	cd standalone; python $(FREEZE) qotdinterface.py
+	$(MAKE) -C standalone all
+
+clean:
+	rm -r standalone
+	mkdir standalone
+
+	
